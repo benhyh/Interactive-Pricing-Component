@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+// Primary
+$soft-cyan: hsl(174, 77%, 80%); // full slider bar
+$strong-cyan: hsl(174, 86%, 45%); // slider background 
+$light-grayish-red: hsl(14, 92%, 95%); // discount background
+$light-red: hsl(15, 100%, 70%); // discount text
+$pale-blue: hsl(226, 100%, 87%); // CTA text
+ 
+// Neutral
+$white: hsl(0, 0%, 100%); // pricing component background
+$very-pale-blue: hsl(230, 100%, 99%); // main background
+$light-grayish-blue: hsl(224, 65%, 95%); // empty slider bar
+$light-grayish-blue-toggle: hsl(223, 50%, 87%); // toggle background
+$grayish-blue: hsl(225, 20%, 60%); // text
+$dark-desaturated-blue: hsl(227, 35%, 25%); // text & CTA background
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+}
+
+hr {
+    border: 0.0625rem solid $light-grayish-blue;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+body {
+    background-color: $very-pale-blue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 13rem;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 37.5rem;
+    height: 31.25rem;
+    border-radius: 1rem;
+    background-color: $white;
+    box-shadow: 0.3125rem 0.3125rem 0.625rem $light-grayish-blue;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 31.25rem;
+    width: 100vw;
+    background-color: $light-grayish-blue;
+    border-radius: 4rem;
+    svg {
+        position: relative;
+        bottom: 7rem;
+        right: 1.3rem;
+    }
+    h1 {
+        color: $dark-desaturated-blue;
+        font-weight: 800;
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
+    }
+    span {
+        color: $grayish-blue;
+        font-weight: 600;
+        font-size: clamp(0.8rem, 2vw, 1rem);
+    } 
+}
+
+.container-header{
+    margin: 1rem 0;
+    .page-views{ 
+        color: $grayish-blue;
+        font-weight: 800;
+        letter-spacing: 2px;
+        margin: 0 3rem;
+    }
+    .price-container{
+        position: relative;
+        top: 0.3rem;
+        margin: 0 4rem;
+        .price-amount {
+            color: $dark-desaturated-blue;
+            font-weight: 800;
+            font-size: 2.5rem;
+        }
+        #price-period {
+            color: $grayish-blue;
+            font-weight: 600;
+            position: relative;
+            left: 0.3rem;
+            bottom: 0.5rem;
+        }
+    }
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.8125rem;
+  height: 1.5rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $light-grayish-blue-toggle;
+  -webkit-transition: .4s;
+  transition: .4s;
+  &:hover {
+    background-color: $soft-cyan;
+  }
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 0.9375rem;
+  width: 0.9375rem;
+  left: 0.25rem;
+  bottom: 0.25rem;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: $strong-cyan;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 0.0625rem $strong-cyan;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(1.125rem);
+  -ms-transform: translateX(1.125rem);
+  transform: translateX(1.125rem);
+}
+
+/* Slide Container */
+
+.slide-container {
+    position: relative;
+    margin-top: 20px;
+    --size: 40px;
+    height: var(--size);
+    display: grid;
+} 
+
+[type="range"] {
+    position: absolute;
+    margin: 0 auto;
+    width: 80%;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.fake-range {
+    position: relative;
+    pointer-events: none;
+    display: grid;
+    place-items: center;
+}
+
+[type="range"]:hover ~ .fake-range > .thumb {
+    transition: 0.25s ease;
+    background-color: lighten($strong-cyan, 10%);
+}
+
+[type="range"]:active ~ .fake-range > .thumb {
+    transition: 0.25s ease;
+    background-color: darken($strong-cyan, 10%);
+}
+
+.track {
+    height: 8px;
+    width: 80%;
+    background-color: $light-grayish-blue;
+    border-radius: 100vmax; 
+    position: relative;
+    overflow: hidden;
+}
+ 
+.thumb {
+    background-color: $strong-cyan;
+    height: var(--size);
+    width: var(--size);
+    border-radius: 100vmax;
+    display: grid;
+    place-items: center;
+    position: absolute;
+}
+
+.filled {
+    position: absolute;
+    margin: 0 auto;
+    height: 100%;
+    background-color: $soft-cyan;
+    width: 50%;
+} 
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 2.125rem;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Billing */
+.billing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 2rem;
+    .switch {
+        position: relative;
+        left: 2rem;
+    }
+    #monthly-billing, #yearly-billing {
+        font-size: clamp(0.8rem, 2vw, 1.1rem);
+        color: $grayish-blue;
+        font-weight: 600;
+    }
+    #monthly-billing {
+        position: relative;
+        left: 1rem;
+    }
+    #yearly-billing {
+        position: relative;
+        left: 3rem;
+    }
+    .discount {
+        position: relative; 
+        left: 4rem;
+        border: 0.0625rem solid black;
+        border: none;
+        color: $light-red;
+        background-color: lighten($light-red, 25%);
+        border-radius: 1.25rem;
+        padding: 0.3125rem;
+        font-weight: 800;
+        font-size: 0.6rem;
+    }
+    #discount-hidden {
+        display: none;
+    }
+}
+
+/* Features */
+.features {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5 2rem;
+    svg {
+        margin: 0 0.5rem;
+    }
+    span {
+        color: $grayish-blue;
+        font-weight: 600;
+        margin: 0.5rem 0;
+    }
+}
+.trial-button {
+    position: relative;
+    left: 21.3rem;
+    bottom: 5.5rem;
+    #button {
+        background-color: $dark-desaturated-blue;
+        border: none;
+        color: $grayish-blue;
+        width: 12.5rem;
+        text-align: center;
+        border-radius: 1.25rem;
+        padding: 0.625rem;
+        cursor: pointer;
+        font-weight: 800;
+    }
+    #button:hover {
+        transition: 0.5s ease;
+        color: $white;
+    }
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    * {
+        text-align: center;
+    }
+    .billing #discount-percentage {
+        display: none;
+    }
+    .billing #discount-hidden {
+        display: block;
+    }
+    .header {
+        border-radius: 0;
+        svg {
+            position: relative;
+            bottom: 6rem;
+            left: 0.2rem;
+        }
+    }
+    .container {
+        width: 90vw;
+        height: auto;
+    }
+    .billing {
+        position: relative;
+        margin: 2rem 0;
+        right: 2.2rem;
+    }
+    .trial-button {
+        inset: 0;
+        #button {
+            margin: 2rem 2.5rem;
+        }
+    }
+}

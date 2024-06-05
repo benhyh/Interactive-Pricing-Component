@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->  
+  <title>Frontend Mentor | Interactive pricing component</title>
+  <link rel="stylesheet" href="css/style.scss">
+  <script type="module" src="js/script.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>Simple, traffic-based pricing</h1>
+    <span>Sign-up for our 30-day trial. No credit card required.</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="146" height="145"><g fill="none" fill-rule="evenodd" stroke="#CFD8EF"><circle cx="63" cy="82" r="62.5"/><circle cx="105" cy="41" r="40.5"/></g></svg>
+  </div>
+  
+  <!-- Container -->
+  <div class="container"> 
+    <!--Container Header-->
+      <div class="container-header">
+        <span class="page-views">100K PAGEVIEWS</span>
+        <span class="price-container"><span class="price-amount">$16.00</span><span id="price-period">/ month</span></span>
+      </div>
+      
+      <!--Slider Bar-->
+      <div class="slide-container">
+        <input oninput="calculatePrice(this.value)" type="range" min="1" max="5" value="3">
+          <div class="fake-range">
+            <div class="track">
+              <div class="filled"></div>
+            </div>
+            <div class="thumb">
+              <img src="images/icon-slider.svg" alt="">
+            </div>
+          </div>
+      </div> 
+    
+    <!--Billing-->
+    <div class="billing">
+      <span id="monthly-billing">Monthly Billing</span>
+      <!--Label Switch -->
+      <label class="switch">
+        <input type="checkbox" id="discount-toggle">
+        <span class="slider round"></span>
+      </label>
+      <span id="yearly-billing">Yearly Billing</span>
+      <span class="discount" id="discount-percentage">25% discount</span>
+      <span class="discount" id="discount-hidden">-25%</span>
+    </div>
+    <hr>
+
+    
+    <!-- Container Footer -->
+    <div class="container-footer">
+      <!-- Features -->
+      <div class="features">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8"><path fill="none" stroke="#10D8C4" stroke-width="2" d="M1 4.134l1.907 1.908L7.949 1"/></svg>
+          Unlimited websites
+        </span>
+        
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8"><path fill="none" stroke="#10D8C4" stroke-width="2" d="M1 4.134l1.907 1.908L7.949 1"/></svg>
+          100% data ownership
+        </span>
+
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8"><path fill="none" stroke="#10D8C4" stroke-width="2" d="M1 4.134l1.907 1.908L7.949 1"/></svg>
+          Email reports 
+        </span>
+        
+      </div>
+      <!-- Trial Button --> 
+      <div class="trial-button">
+        <button id="button">Start my trial</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
